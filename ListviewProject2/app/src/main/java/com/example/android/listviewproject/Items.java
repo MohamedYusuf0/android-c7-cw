@@ -6,7 +6,7 @@ class Items implements Serializable {
 
 
 
-    String itemName;
+    private String itemName;
     int itemImage;
     double itemPrice;
 

@@ -1,6 +1,7 @@
 package com.example.android.listviewproject;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ class ItemAdapter extends ArrayAdapter<Items> {
         //
         Items currentItem = items.get(position);
         //
-        TextView shapeNameTextView = view.findViewById(R.id.item1_name);
+        TextView shapeNameTextView = view.findViewById(R.id.itemName);
         shapeNameTextView.setText(currentItem.getItemName());
 
         //
@@ -46,7 +46,30 @@ class ItemAdapter extends ArrayAdapter<Items> {
         TextView price = view.findViewById(R.id.item1_price);
         price.setText(currentItem.getItemPrice() + "");
 
-     
+        ImageView imageRemove = view.findViewById(R.id.imageRemove);
+
+        imageRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                        .setTitle("Are you sure you want to delete this item?")
+
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                items.remove(position);
+                                notifyDataSetChanged();
+                                    }
+                                })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).show();
+                alertDialog.create();
+            }
+        });
         return view;
     }
 }

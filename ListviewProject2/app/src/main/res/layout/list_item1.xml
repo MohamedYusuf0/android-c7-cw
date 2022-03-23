@@ -21,7 +21,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/item1_name"
+        android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -37,7 +37,7 @@
         android:id="@+id/item1_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/item1_name"
+        android:layout_below="@+id/itemName"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="3dp"
         android:layout_marginTop="42dp"
@@ -50,11 +50,21 @@
         android:id="@+id/textView4"
         android:layout_width="86dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/item1_name"
+        android:layout_below="@+id/itemName"
         android:layout_marginStart="35dp"
         android:layout_marginTop="42dp"
         android:layout_toEndOf="@+id/item1_image"
         android:text="Price:"
         android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="22dp"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
 
 </RelativeLayout>
